@@ -1,3 +1,5 @@
+/* eslint-disable drizzle/enforce-delete-with-where */
+
 import { faker } from '@faker-js/faker'
 import { restaurants, users } from './schema'
 import chalk from 'chalk'

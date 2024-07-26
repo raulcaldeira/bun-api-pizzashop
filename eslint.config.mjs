@@ -1,3 +1,4 @@
+import drizzle from 'eslint-plugin-drizzle'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import js from '@eslint/js'
@@ -10,4 +11,12 @@ const compat = new FlatCompat({
   recommendedConfig: js.configs.recommended,
   allConfig: js.configs.all,
 })
-export default [...compat.extends('@rocketseat/eslint-config/node')]
+
+export default [
+  ...compat.extends('@rocketseat/eslint-config/node', 'plugin:drizzle/all'),
+  {
+    plugins: {
+      drizzle,
+    },
+  },
+]
