@@ -1,9 +1,8 @@
-import Elysia from 'elysia'
+import { Elysia } from 'elysia'
+import { registerRestaurante } from './routes/register-restaurante'
 
-const app = new Elysia().get('/', () => {
-  return 'Hello World'
-})
+const app = new Elysia().use(registerRestaurante)
 
 app.listen(3333, () => {
-  console.log('🔥 HTTP server running')
+  console.log('🔥 HTTP server running!')
 })
