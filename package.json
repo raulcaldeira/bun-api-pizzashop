@@ -6,15 +6,26 @@
     "dev": "bun --watch src/http/server.ts",
     "build": "bun build src/http/server.ts",
     "start": "NODE_ENV=production bun src/http/server.ts",
+    "generate": "drizzle-kit generate",
+    "migrate:old": "drizzle-kit migrate",
+    "migrate": "bun src/db/migrate.ts",
+    "seed": "bun src/db/seed.ts",
     "test": "bun test"
   },
+  "dependencies": {
+    "@paralleldrive/cuid2": "^2.2.2",
+    "drizzle-orm": "^0.32.1",
+    "elysia": "^1.1.4",
+    "postgres": "^3.4.4",
+    "zod": "^3.23.8"
+  },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@faker-js/faker": "^8.4.1",
+    "@types/bun": "latest",
+    "chalk": "^5.3.0",
+    "drizzle-kit": "^0.23.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
-  },
-  "dependencies": {
-    "elysia": "^1.1.4"
   }
 }
