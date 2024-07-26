@@ -8,8 +8,7 @@
     "start": "NODE_ENV=production bun src/http/server.ts",
     "lint:old": "bun eslint --fix src --ext ts",
     "lint": "bun eslint --fix 'src/**/*.ts'",
-    "generate": "drizzle-kit generate",
-    "migrate:old": "drizzle-kit migrate",
+    "generate": "bun drizzle-kit generate",
     "migrate": "bun src/db/migrate.ts",
     "seed": "bun src/db/seed.ts",
     "test": "bun test"

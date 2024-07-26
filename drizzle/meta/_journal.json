@@ -22,6 +22,13 @@
       "when": 1721955694027,
       "tag": "0002_bizarre_dragon_man",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1722022103040,
+      "tag": "0003_bitter_firebrand",
+      "breakpoints": true
     }
   ]
 }
