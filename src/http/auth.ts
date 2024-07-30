@@ -30,5 +30,19 @@ export const auth = new Elysia()
         // removeCookie('auth')
         cookie.auth.remove()
       },
+      getCurrentUser: async () => {
+        const authCookie = cookie.auth.value
+
+        const payload = await jwt.verify(authCookie)
+
+        if (!payload) {
+          throw new Error('Unauthorized.')
+        }
+
+        return {
+          userId: payload.sub,
+          restaurantId: payload.restaurantId,
+        }
+      },
     }
   })
