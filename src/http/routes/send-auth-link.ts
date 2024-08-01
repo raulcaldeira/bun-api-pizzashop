@@ -5,6 +5,8 @@ import { createId } from '@paralleldrive/cuid2'
 import { authLinks } from '../../db/schema'
 import { env } from '../../env'
 import { mail } from '../../lib/nodemailer'
+import fs from 'fs'
+import path from 'path'
 
 export const sendAuthLink = new Elysia().post(
   '/authenticate',
@@ -31,7 +33,14 @@ export const sendAuthLink = new Elysia().post(
     const authLink = new URL('/auth-links/authenticate', env.API_BASE_URL)
 
     authLink.searchParams.set('code', authLinkCode)
-    authLink.searchParams.set('redirect', env.AUTH_REDIRECT_URL)
+    authLink.searchParams.set('redirectUrl', env.AUTH_REDIRECT_URL)
+
+    // Carregar o template HTML
+    const templatePath = path.join(__dirname, '../../mailtemplate.html')
+    let htmlTemplate = fs.readFileSync(templatePath, 'utf-8')
+
+    // Substituir o placeholder pelo link de autenticação
+    htmlTemplate = htmlTemplate.replace('{{authLink}}', authLink.toString())
 
     const info = await mail.sendMail({
       from: {
@@ -41,6 +50,7 @@ export const sendAuthLink = new Elysia().post(
       to: email,
       subject: 'Authenticate to Pizza Shop',
       text: `Use the following link to authenticate on Pizza Shop: ${authLink.toString()}`,
+      html: htmlTemplate, // Adiciona o template HTML
     })
 
     console.log(nodemailer.getTestMessageUrl(info))

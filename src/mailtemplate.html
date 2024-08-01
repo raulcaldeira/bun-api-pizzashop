@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authenticate to Pizza Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            text-align: center;
+        }
+        h1 {
+            color: #d9534f;
+        }
+        p {
+            font-size: 16px;
+        }
+        a {
+            display: inline-block;
+            background-color: #d9534f;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        a:hover {
+            background-color: #c9302c;
+        }
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- <img src="" alt="Pizza Shop Logo" class="logo"> -->
+        <h1>Welcome to Pizza Shop!</h1>
+        <p>Hello,</p>
+        <p>Use the link below to authenticate to Pizza Shop:</p>
+        <a href="{{authLink}}">Click here to authenticate</a>
+    </div>
+</body>
+</html>
