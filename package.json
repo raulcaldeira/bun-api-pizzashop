@@ -18,6 +18,7 @@
     "@paralleldrive/cuid2": "^2.2.2",
     "dayjs": "^1.11.12",
     "drizzle-orm": "^0.32.1",
+    "drizzle-typebox": "^0.1.1",
     "elysia": "^1.1.4",
     "nodemailer": "^6.9.14",
     "postgres": "^3.4.4",
