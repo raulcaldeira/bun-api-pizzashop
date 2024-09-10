@@ -23,8 +23,11 @@ export const approveOrder = new Elysia().use(auth).patch(
           },
         },
       },
-      where(fields, { eq }) {
-        return eq(fields.id, orderId)
+      where(fields, { eq, and }) {
+        return and(
+          eq(fields.id, orderId),
+          eq(fields.restaurantId, restaurantId),
+        )
       },
     })
 
@@ -32,10 +35,6 @@ export const approveOrder = new Elysia().use(auth).patch(
       set.status = 400
 
       return { message: 'Order not found.' }
-    }
-
-    if (order.restaurant.id !== restaurantId) {
-      throw new UnauthorizedError()
     }
 
     if (order.status !== 'pending') {
