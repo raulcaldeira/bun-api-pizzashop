@@ -16,7 +16,7 @@
   "dependencies": {
     "@elysiajs/jwt": "^1.1.0",
     "@paralleldrive/cuid2": "^2.2.2",
-    "dayjs": "^1.11.12",
+    "dayjs": "^1.11.13",
     "drizzle-orm": "^0.32.1",
     "drizzle-typebox": "^0.1.1",
     "elysia": "^1.1.4",
